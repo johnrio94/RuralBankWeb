@@ -1,0 +1,184 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
+build_property.EntryPointFilePath = 
+build_property.RootNamespace = RuralBankWeb
+build_property.RootNamespace = RuralBankWeb
+build_property.ProjectDir = C:\Users\RIO\Downloads\RuralBankWeb\RuralBankWeb\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\RIO\Downloads\RuralBankWeb\RuralBankWeb
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/AccountOpen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudE9wZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Content/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29udGVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Content/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29udGVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Jobs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Jobs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Properties/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvcGVydGllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Properties/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvcGVydGllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Vehicles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmVoaWNsZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Admin/Vehicles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmVoaWNsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/AgriculturalLoans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdyaWN1bHR1cmFsTG9hbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/AgriRes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdyaVJlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/AnnualReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5udWFsUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Apply.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/AvailableProperties.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXZhaWxhYmxlUHJvcGVydGllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Career.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/CarFinancing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyRmluYW5jaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/FarmersCorner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFybWVyc0Nvcm5lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/FinancialCalculator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYW5jaWFsQ2FsY3VsYXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/GovProg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR292UHJvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/HomeRealEstate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVJlYWxFc3RhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/HowtoBid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG93dG9CaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/News.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Partner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydG5lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/PreOwned.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlT3duZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/SavingsAcc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2F2aW5nc0FjYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/SolarEnergy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sYXJFbmVyZ3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/SuccessStories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzc1N0b3JpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/TimeDeposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGltZURlcG9zaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RIO/Downloads/RuralBankWeb/RuralBankWeb/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

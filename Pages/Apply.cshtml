@@ -1,0 +1,71 @@
+@page
+@model RuralBankWeb.Pages.ApplyModel
+@{
+    ViewData["Title"] = "Apply — " + (Model.Job?.Title ?? "Job Application");
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Careers</div>
+
+        @if (Model.Submitted)
+        {
+            <h1>Thank you!</h1>
+            <p>Your application for <strong>@Model.Job?.Title</strong> has been received. We'll reach out if your profile matches what we're looking for.</p>
+            <a href="/Career" class="btn btn-primary" style="margin-top:20px;">Back to Careers</a>
+        }
+        else if (Model.Job == null)
+        {
+            <h1>Job not found</h1>
+            <a href="/Career" class="btn btn-primary">Back to Careers</a>
+        }
+        else
+        {
+            <h1>Apply for @Model.Job.Title</h1>
+            <p style="max-width:640px;">@Model.Job.Department · @Model.Job.Location · @Model.Job.EmploymentType</p>
+
+            <form method="post" enctype="multipart/form-data" style="max-width:600px; margin-top:30px;">
+                <input type="hidden" asp-for="Application.JobId" />
+                <input type="hidden" asp-for="Application.JobTitle" />
+
+                <div class="form-group">
+                    <label asp-for="Application.FullName">Full Name</label>
+                    <input asp-for="Application.FullName" class="form-control" required />
+                    <span asp-validation-for="Application.FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label asp-for="Application.Email">Email Address</label>
+                    <input asp-for="Application.Email" type="email" class="form-control" required />
+                    <span asp-validation-for="Application.Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label asp-for="Application.Phone">Phone Number</label>
+                    <input asp-for="Application.Phone" class="form-control" required />
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label asp-for="Application.Address">Address</label>
+                    <input asp-for="Application.Address" class="form-control" />
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label asp-for="Application.Message">Cover Message (optional)</label>
+                    <textarea asp-for="Application.Message" class="form-control" rows="4" placeholder="Tell us why you'd be a good fit..."></textarea>
+                </div>
+
+                <div class="form-group" style="margin-top:15px;">
+                    <label asp-for="Resume">Upload Resume (PDF, DOC, DOCX — max 5MB)</label>
+                    <input asp-for="Resume" type="file" class="form-control" accept=".pdf,.doc,.docx" required />
+                    <span asp-validation-for="Resume" class="text-danger"></span>
+                </div>
+
+                <div style="margin-top:25px;">
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <a href="/Career" class="btn">Cancel</a>
+                </div>
+            </form>
+        }
+    </div>
+</section>

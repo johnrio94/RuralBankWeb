@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 1,
+    "Title": "test",
+    "Department": "mis",
+    "Location": "koronadal",
+    "EmploymentType": "Full-time",
+    "Description": "testestset",
+    "IsActive": true,
+    "DatePosted": "2026-07-17T08:44:36.8862828+08:00"
+  }
+]

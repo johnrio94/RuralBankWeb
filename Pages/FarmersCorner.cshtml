@@ -1,0 +1,51 @@
+@page
+@model RuralBankWeb.Pages.FarmersCornerModel
+@{
+    ViewData["Title"] = "Farmer's Corner";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">For our farmers</div>
+        <h1>Farmer's Corner</h1>
+        <p style="max-width:640px;">Practical tools and information for the farming community we serve — market prices, planting schedules, and support programs.</p>
+
+        <div class="grid grid-3" style="margin-top:36px;">
+            <div class="card">
+                <h3>This Week's Palay Buying Price</h3>
+                <div class="rate" style="font-family:var(--font-mono); font-size:1.6rem; color:var(--color-forest); margin:10px 0;">₱22.50 <span style="font-size:0.9rem; font-family:var(--font-body); color:var(--color-soil);">/ kilo, dry</span></div>
+                <p>Indicative price from local traders. Confirm at time of sale.</p>
+            </div>
+            <div class="card">
+                <h3>Planting Calendar</h3>
+                <p>Wet season rice: plant June – July. Dry season rice: plant November – December. Consult your local agriculturist for your specific area.</p>
+            </div>
+            <div class="card">
+                <h3>Weather Advisory</h3>
+                <p>Check PAGASA's regional forecast before applying fertilizer or scheduling harvest to avoid crop loss.</p>
+            </div>
+        </div>
+
+        <div class="divider" style="margin-top:56px;">Support programs</div>
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Free Financial Literacy Sessions</h3>
+                <p>Monthly sessions at each branch covering budgeting, saving, and responsible borrowing for farming households.</p>
+            </div>
+            <div class="card">
+                <h3>Crop Insurance Assistance</h3>
+                <p>Our loan officers can help you apply for Philippine Crop Insurance Corporation (PCIC) coverage alongside your agricultural loan.</p>
+            </div>
+            <div class="card">
+                <h3>Cooperative Partnership Program</h3>
+                <p>Special group loan terms for registered farmer cooperatives and associations.</p>
+            </div>
+            <div class="card">
+                <h3>Farm Technology Briefings</h3>
+                <p>Periodic briefings with the Department of Agriculture on new seed varieties, irrigation methods, and equipment subsidies.</p>
+            </div>
+        </div>
+
+        <p style="margin-top:32px; font-size:0.85rem; color:rgba(74,55,40,0.65);">Prices and schedules are indicative guides only and may vary by locality and season. For the latest information, visit your nearest branch or the Department of Agriculture.</p>
+    </div>
+</section>

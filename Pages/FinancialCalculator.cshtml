@@ -1,0 +1,281 @@
+@page
+@model RuralBankWeb.Pages.FinancialCalculatorModel
+@{
+    ViewData["Title"] = "Financial Calculator";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Financial Calculator</div>
+        <h3>Plan Your Savings &amp; Loan Payments</h3>
+        <p style="max-width:640px;">Get a quick estimate of your Time Deposit earnings or your loan's monthly amortization. These figures are indicative only — visit any branch for a formal quotation.</p>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="calc-tabs">
+            <button class="calc-tab active" data-tab="deposit" onclick="switchCalcTab('deposit')">💰 Time Deposit Calculator</button>
+            <button class="calc-tab" data-tab="loan" onclick="switchCalcTab('loan')">🏦 Loan Calculator</button>
+        </div>
+
+        <!-- TIME DEPOSIT CALCULATOR -->
+        <div id="calc-deposit" class="calc-panel active">
+            <div class="grid grid-2" style="align-items:start;">
+                <div class="card">
+                    <h3>Enter Your Details</h3>
+
+                    <div class="form-field">
+                        <label for="td-amount">Principal Amount (₱)</label>
+                        <input type="number" id="td-amount" value="10000" min="0" oninput="calculateDeposit()" />
+                        <span class="field-error" id="td-amount-error"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="td-rate">Annual Interest Rate (%)</label>
+                        <input type="number" id="td-rate" value="4.25" step="0.01" min="0" oninput="calculateDeposit()" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="td-term">Term</label>
+                        <select id="td-term" onchange="calculateDeposit()">
+                            <option value="30">30 days</option>
+                            <option value="90">90 days</option>
+                            <option value="180">180 days</option>
+                            <option value="360" selected>360 days (1 year)</option>
+                        </select>
+                    </div>
+
+                    <p class="calc-hint">Results update automatically as you type.</p>
+                </div>
+
+                <div class="card calc-result">
+                    <h3>Estimated Results</h3>
+
+                    <div class="calc-bar" id="td-bar" aria-hidden="true">
+                        <div class="calc-bar-principal" style="width:100%;"></div>
+                        <div class="calc-bar-interest" id="td-bar-interest" style="width:0%;"></div>
+                    </div>
+                    <div class="calc-bar-legend">
+                        <span><i class="dot dot-principal"></i> Principal</span>
+                        <span><i class="dot dot-interest"></i> Net Interest</span>
+                    </div>
+
+                    <div class="calc-result-row">
+                        <span>Gross Interest Earned</span>
+                        <strong id="td-gross">₱0.00</strong>
+                    </div>
+                    <div class="calc-result-row">
+                        <span>Withholding Tax (20%)</span>
+                        <strong id="td-tax">₱0.00</strong>
+                    </div>
+                    <div class="calc-result-row">
+                        <span>Net Interest Earned</span>
+                        <strong id="td-net">₱0.00</strong>
+                    </div>
+                    <div class="calc-result-row calc-result-total">
+                        <span>Total Payout at Maturity</span>
+                        <strong id="td-total">₱0.00</strong>
+                    </div>
+                    <p class="calc-disclaimer">Estimate assumes standard 20% final withholding tax on interest income. Actual rates and terms are subject to bank approval.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOAN CALCULATOR -->
+        <div id="calc-loan" class="calc-panel">
+            <div class="grid grid-2" style="align-items:start;">
+                <div class="card">
+                    <h3>Enter Your Details</h3>
+
+                    <div class="form-field">
+                        <label for="loan-amount">Loan Amount (₱)</label>
+                        <input type="number" id="loan-amount" value="100000" min="0" oninput="calculateLoan()" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="loan-rate">Annual Interest Rate (%)</label>
+                        <input type="number" id="loan-rate" value="9" step="0.01" min="0" oninput="calculateLoan()" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="loan-term">Term (months)</label>
+                        <input type="number" id="loan-term" value="12" min="1" max="360" oninput="calculateLoan()" />
+                        <span class="field-error" id="loan-term-error"></span>
+                    </div>
+
+                    <p class="calc-hint">Results update automatically as you type.</p>
+                </div>
+
+                <div class="card calc-result">
+                    <h3>Estimated Results</h3>
+
+                    <div class="calc-bar" id="loan-bar" aria-hidden="true">
+                        <div class="calc-bar-principal" id="loan-bar-principal" style="width:70%;"></div>
+                        <div class="calc-bar-interest" id="loan-bar-interest" style="width:30%;"></div>
+                    </div>
+                    <div class="calc-bar-legend">
+                        <span><i class="dot dot-principal"></i> Principal</span>
+                        <span><i class="dot dot-interest"></i> Interest</span>
+                    </div>
+
+                    <div class="calc-result-row">
+                        <span>Total Interest</span>
+                        <strong id="loan-interest">₱0.00</strong>
+                    </div>
+                    <div class="calc-result-row calc-result-total">
+                        <span>Total Repayment</span>
+                        <strong id="loan-total">₱0.00</strong>
+                    </div>
+                    <div class="calc-result-row calc-result-total">
+                        <span>Estimated Monthly Payment</span>
+                        <strong id="loan-monthly">₱0.00</strong>
+                    </div>
+                    <p class="calc-disclaimer">Estimate uses simple flat-rate interest for illustration. Actual computation may vary based on loan type, collateral, and repayment structure.</p>
+                </div>
+            </div>
+
+            <!-- AMORTIZATION SCHEDULE -->
+            <div class="card" style="margin-top:24px;">
+                <div class="amort-header">
+                    <h3 style="margin:0;">Monthly Amortization Schedule</h3>
+                    <button class="btn btn-sm" onclick="toggleAmortization()" id="amort-toggle-btn">Show Schedule</button>
+                </div>
+                <div id="amort-table-wrapper" style="display:none; margin-top:20px;">
+                    <table class="data-table" id="amort-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Payment</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Remaining Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="amort-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function switchCalcTab(tab) {
+        document.querySelectorAll('.calc-tab').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.calc-panel').forEach(panel => panel.classList.remove('active'));
+        document.querySelector(`.calc-tab[data-tab="${tab}"]`).classList.add('active');
+        document.getElementById(`calc-${tab}`).classList.add('active');
+    }
+
+    function formatPeso(value) {
+        if (isNaN(value)) value = 0;
+        return '₱' + value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function clearError(id) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '';
+    }
+
+    function setError(id, message) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = message;
+    }
+
+    function calculateDeposit() {
+        const amountInput = document.getElementById('td-amount');
+        const principal = parseFloat(amountInput.value) || 0;
+        const rate = parseFloat(document.getElementById('td-rate').value) || 0;
+        const days = parseInt(document.getElementById('td-term').value) || 0;
+
+        clearError('td-amount-error');
+        if (principal < 0) {
+            setError('td-amount-error', 'Amount cannot be negative.');
+            return;
+        }
+
+        const grossInterest = principal * (rate / 100) * (days / 360);
+        const tax = grossInterest * 0.20;
+        const netInterest = grossInterest - tax;
+        const totalPayout = principal + netInterest;
+
+        document.getElementById('td-gross').textContent = formatPeso(grossInterest);
+        document.getElementById('td-tax').textContent = formatPeso(tax);
+        document.getElementById('td-net').textContent = formatPeso(netInterest);
+        document.getElementById('td-total').textContent = formatPeso(totalPayout);
+
+        // Visual bar: interest as % of total payout
+        const interestPct = totalPayout > 0 ? Math.min((netInterest / totalPayout) * 100, 100) : 0;
+        document.getElementById('td-bar-interest').style.width = interestPct + '%';
+    }
+
+    function calculateLoan() {
+        const principal = parseFloat(document.getElementById('loan-amount').value) || 0;
+        const rate = parseFloat(document.getElementById('loan-rate').value) || 0;
+        const termInput = document.getElementById('loan-term');
+        let months = parseInt(termInput.value) || 1;
+
+        clearError('loan-term-error');
+        if (months < 1) {
+            months = 1;
+            setError('loan-term-error', 'Minimum term is 1 month.');
+        } else if (months > 360) {
+            months = 360;
+            setError('loan-term-error', 'Maximum term is 360 months.');
+        }
+
+        const years = months / 12;
+        const totalInterest = principal * (rate / 100) * years;
+        const totalRepayment = principal + totalInterest;
+        const monthlyPayment = totalRepayment / months;
+
+        document.getElementById('loan-interest').textContent = formatPeso(totalInterest);
+        document.getElementById('loan-total').textContent = formatPeso(totalRepayment);
+        document.getElementById('loan-monthly').textContent = formatPeso(monthlyPayment);
+
+        // Visual bar: principal vs interest split
+        const principalPct = totalRepayment > 0 ? (principal / totalRepayment) * 100 : 100;
+        const interestPct = 100 - principalPct;
+        document.getElementById('loan-bar-principal').style.width = principalPct + '%';
+        document.getElementById('loan-bar-interest').style.width = interestPct + '%';
+
+        buildAmortizationTable(principal, monthlyPayment, totalInterest, months);
+    }
+
+    function buildAmortizationTable(principal, monthlyPayment, totalInterest, months) {
+        const tbody = document.getElementById('amort-body');
+        tbody.innerHTML = '';
+
+        const monthlyInterestPortion = totalInterest / months;
+        const monthlyPrincipalPortion = principal / months;
+        let remaining = principal;
+
+        for (let m = 1; m <= months; m++) {
+            remaining -= monthlyPrincipalPortion;
+            if (remaining < 0) remaining = 0;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${m}</td>
+                <td>${formatPeso(monthlyPayment)}</td>
+                <td>${formatPeso(monthlyPrincipalPortion)}</td>
+                <td>${formatPeso(monthlyInterestPortion)}</td>
+                <td>${formatPeso(remaining)}</td>
+            `;
+            tbody.appendChild(row);
+        }
+    }
+
+    function toggleAmortization() {
+        const wrapper = document.getElementById('amort-table-wrapper');
+        const btn = document.getElementById('amort-toggle-btn');
+        const isHidden = wrapper.style.display === 'none';
+        wrapper.style.display = isHidden ? 'block' : 'none';
+        btn.textContent = isHidden ? 'Hide Schedule' : 'Show Schedule';
+    }
+
+    // Run once on load with default values
+    calculateDeposit();
+    calculateLoan();
+</script>

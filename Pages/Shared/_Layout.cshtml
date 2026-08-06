@@ -1,0 +1,219 @@
+@{
+    string current = ViewContext.RouteData.Values["page"]?.ToString() ?? "/Index";
+    string IsActive(string page) => current.Equals(page, StringComparison.OrdinalIgnoreCase) ? "active" : "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — Rural Bank of Norala Inc.</title>
+    <meta name="description" content="Katagumpay Rural Bank — serving farmers and families with honest, accessible banking." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            @* <a class="brand" href="/">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" width="34" height="34">
+                        <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 26 L20 12 L30 26 Z" fill="currentColor" opacity="0.9"/>
+                        <path d="M8 28 h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <span class="brand-name">Katagumpay</span>
+                    <span class="brand-sub">Rural Bank</span>
+                </span>
+            </a> *@
+            @* <a class="brand" href="/">
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="/img/logo.png" alt="Katagumpay Rural Bank Logo" width="34" height="34" style="border-radius:50%;" />
+                </span>
+                <span class="brand-text">
+                    <span class="brand-name">Rural Bank</span>
+                    <span class="brand-sub">of Norala</span>
+                </span>
+            </a> *@
+
+            <a class="brand" href="/">
+                <img src="/img/logo.png" alt="Rural Bank of Norala, Inc." class="brand-logo" />
+            </a>    
+
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                <span></span><span></span><span></span>
+            </button>
+
+
+            <style>
+                /* Force the navigation bar to allow elements to overflow visually outside of it */
+                nav.primary-nav, 
+                nav.primary-nav > ul {
+                    overflow: visible !important;
+                    position: relative !important;
+                }
+
+                /* Set up the container anchor point */
+                nav.primary-nav ul li {
+                    position: relative !important;
+                    overflow: visible !important;
+                }
+
+                /* Target the submenu explicitly by HTML hierarchy to bypass missing classes */
+                nav.primary-nav ul li ul {
+                    display: none !important;
+                    position: absolute !important;
+                    top: 100% !important; /* Forces it to sit BELOW the main bar */
+                    left: 0 !important;
+                    min-width: 220px !important;
+                    background-color: #56224c !important; /* Deep purple matching your new theme */
+                    padding: 8px 0 !important;
+                    margin: 0 !important;
+                    list-style: none !important;
+                    z-index: 99999 !important;
+                    border-radius: 4px;
+                    box-shadow: 0px 8px 16px rgba(0,0,0,0.4) !important;
+                }
+
+                /* Ensure child links take up full width and stack vertically */
+                nav.primary-nav ul li ul li {
+                    display: block !important;
+                    width: 100% !important;
+                    float: none !important;
+                    height: auto !important;
+                }
+
+                nav.primary-nav ul li ul li a {
+                    display: block !important;
+                    padding: 10px 16px !important;
+                    color: #ffffff !important;
+                    text-align: left !important;
+                    white-space: nowrap !important;
+                    text-decoration: none !important;
+                }
+
+                /* Subtle hover effect for the item inside the dropdown */
+                nav.primary-nav ul li ul li a:hover {
+                    background-color: #7c316d !important; /* Main brand purple for the hover state */
+                }
+
+                /* Make the hidden list pop up smoothly when hovering over the parent li item */
+                nav.primary-nav ul li:hover > ul {
+                    display: block !important;
+                }
+            </style>
+
+
+            <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+                <ul>
+
+
+                    <li class="dropdown">
+                        <a class="@IsActive(page: "/LoanProducts")" href="#" class="dropdown-toggle">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="@IsActive(page: "/About")" href="/About">Company Overview</a></li>
+                            <li><a class="@IsActive(page: "/AnnualReport")" href="/AnnualReport">Annual Reports & Governance</a></li>
+                            <li><a class="@IsActive(page: "/Career")" href="/Career">Careers</a></li>
+                            <li><a class="@IsActive(page: "/Partner")" href="/Partner">Our Partners</a></li>
+                            <li><a class="@IsActive(page: "/SuccessStories")" href="/SuccessStories">Success Stories</a></li>
+                            <!-- You can easily add more loan submenus here in the future -->
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a class="@IsActive(page: "/LoanProducts")" href="#" class="dropdown-toggle">Loan Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="@IsActive(page: "/AgriculturalLoans")" href="/AgriculturalLoans">Agricultural Loans</a></li>
+                            <li><a class="@IsActive(page: "/CarFinancing")" href="/CarFinancing">Car & Vehicle Financing</a></li>
+                            <li><a class="@IsActive(page: "/HomeRealEstate")" href="/HomeRealEstate">Home & Real Estate Loans</a></li>
+                            <li><a class="@IsActive(page: "/SolarEnergy")" href="/SolarEnergy">Solar Energy Financing</a></li>
+                            <!-- You can easily add more loan submenus here in the future -->
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="@IsActive(page: "/LoanProducts")" href="#" class="dropdown-toggle">Deposit Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="@IsActive(page: "/AccountOpen")" href="/AccountOpen">Account Opening Guide</a></li>
+                            <li><a class="@IsActive(page: "/TimeDeposit")" href="/TimeDeposit">Time Deposits</a></li>
+                            <li><a class="@IsActive(page: "/SavingsAcc")" href="/SavingsAcc">Savings Account</a></li>
+                            <!-- You can easily add more loan submenus here in the future -->
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="@IsActive(page: "/LoanProducts")" href="#" class="dropdown-toggle">Assets For Sale</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="@IsActive(page: "/AvailableProperties")" href="/AvailableProperties">Available Properties</a></li>
+                            <li><a class="@IsActive(page: "/Howtobid")" href="/Howtobid">How To Bid</a></li>
+                            <li><a class="@IsActive(page: "/PreOwned")" href="/PreOwned">Pre-Owned Vehicles</a></li>
+                            <!-- You can easily add more loan submenus here in the future -->
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="@IsActive(page: "/LoanProducts")" href="#" class="dropdown-toggle">Farmer's Corner</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="@IsActive(page: "/AgriRes")" href="/AgriRes">Agricultural Resources</a></li>
+                            <li><a class="@IsActive(page: "/GovProg")" href="/GovProg">Government Programs</a></li>
+                            <li><a class="@IsActive(page: "/News")" href="/News">Local News</a></li>
+                            <!-- You can easily add more loan submenus here in the future -->
+                        </ul>
+                    </li>
+
+                    @* <li><a class="@IsActive("/AgriculturalLoans")" href="/AgriculturalLoans">Agricultural Loans</a></li> *@
+                    <li><a class="@IsActive("/FinancialCalculator")" href="/FinancialCalculator">Calculator</a></li>
+                    <li><a class="@IsActive("/Contact")" href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>Rural Bank of Norala Inc.</strong>
+                <p>Member, Philippine Deposit Insurance Corporation (PDIC).<br />Maximum deposit insurance for each depositor is ₱500,000.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Menu</h4>
+                    <a href="/About">About</a>
+                    <a href="/LoanProducts">Loan Products</a>
+                    <a href="/DepositProducts">Deposit Products</a>
+                </div>
+                <div>
+                    <h4>&nbsp;</h4>
+                    <a href="/AssetsForSale">Asset for Sale</a>
+                    <a href="/FarmersCorner">Farmer's Corner</a>
+                    <a href="/Contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-meta">
+                <p>&copy; @DateTime.Now.Year Rural Bank of Norala Inc., All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('primaryNav');
+        toggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+</body>
+</html>
+

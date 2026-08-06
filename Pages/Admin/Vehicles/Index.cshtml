@@ -1,0 +1,70 @@
+@page
+@model RuralBankWeb.Pages.Admin.Vehicles.IndexModel
+@{
+    ViewData["Title"] = "Manage Vehicles";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>Pre-Owned Vehicles</h1>
+            <a href="/Admin/Vehicles/Edit" class="btn btn-primary">+ Add Vehicle</a>
+        </div>
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Unit ID</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Year</th>
+                    <th>Mileage</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Visible</th>
+                    <th style="width:220px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v in Model.Vehicles)
+                {
+                    <tr>
+                        <td><strong>@v.UnitId</strong></td>
+                        <td>@v.Description</td>
+                        <td>@v.Category</td>
+                        <td>@v.ModelYear</td>
+                        <td>@v.Mileage</td>
+                        <td>@v.IndicativePrice</td>
+                        <td>@v.Status</td>
+                        <td>
+                            @if (v.IsActive)
+                            {
+                                <span style="color:green;">● Shown</span>
+                            }
+                            else
+                            {
+                                <span style="color:#999;">○ Hidden</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="/Admin/Vehicles/Edit?id=@v.Id" class="btn btn-sm">Edit</a>
+                            <form method="post" asp-page-handler="ToggleActive" asp-route-id="@v.Id" style="display:inline;">
+                                <button type="submit" class="btn btn-sm">@(v.IsActive ? "Hide" : "Show")</button>
+                            </form>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@v.Id" style="display:inline;"
+                                  onsubmit="return confirm('Delete this vehicle?');">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Vehicles.Any())
+                {
+                    <tr><td colspan="9">No vehicles yet. Click "Add Vehicle" to create one.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+

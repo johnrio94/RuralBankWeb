@@ -1,0 +1,132 @@
+@page
+@model RuralBankWeb.Pages.PreOwnedModel
+@{
+    ViewData["Title"] = "Pre Owned";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Pre-Owned Vehicles for Sale</div>
+        <h3>Quality Repossessed Vehicles at Practical Prices</h3>
+        <p style="max-width:640px;">Looking for a reliable vehicle for your family or a sturdy light truck to transport agricultural produce and business cargo? Rural Bank of Norala offers a selection of pre-owned cars, utility vehicles, motorcycles, and commercial trucks available for purchase at competitive market prices.</p>
+        <p style="max-width:640px;">All pre-owned vehicles are bank-acquired assets sold on an "As-Is, Where-Is" basis.</p>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Available Vehicles</div>
+        <h3>Current Inventory</h3>
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Unit ID</th>
+                    <th>Description</th>
+                    <th>Model Year</th>
+                    <th>Mileage</th>
+                    <th>Indicative Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v in Model.Vehicles)
+                {
+                    <tr>
+                        <td><strong>@v.UnitId</strong></td>
+                        <td>@v.Description</td>
+                        <td>@v.ModelYear</td>
+                        <td>@v.Mileage</td>
+                        <td>@v.IndicativePrice</td>
+                        <td>
+                            @if (v.Status == "Available")
+                            {
+                                <span style="color:green;">● Available</span>
+                            }
+                            else if (v.Status == "Under Offer")
+                            {
+                                <span style="color:#b8860b;">● Under Offer</span>
+                            }
+                            else
+                            {
+                                <span style="color:#999;">● Sold</span>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Vehicles.Any())
+                {
+                    <tr>
+                        <td colspan="6">No vehicles currently listed. Check back soon.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p style="margin-top:20px; font-size:0.9rem; color:var(--color-soil);">
+            <em>Note: Prices, vehicle specifications, and availability are subject to change without prior notice. Physical inspection is highly encouraged before submitting an offer.</em>
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Payment Options</div>
+        <h3>Flexible Payment Options</h3>
+        <p style="max-width:640px;">We make acquiring a vehicle easy by offering two payment methods:</p>
+
+        <div class="grid grid-2" style="margin-top:30px;">
+            <div class="card">
+                <h3>Spot Cash Purchase</h3>
+                <p>Pay in full and enjoy quick processing and vehicle turnover.</p>
+            </div>
+            <div class="card">
+                <h3>In-House Auto Financing</h3>
+                <p>Pay a minimal down payment (e.g., 20% to 30%) and finance the remaining balance through our Car and Vehicle Financing Program with affordable monthly installments.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">How to Purchase</div>
+        <h3>How to Purchase a Pre-Owned Vehicle</h3>
+
+        <div class="grid grid-3" style="margin-top:40px;">
+            <div class="card">
+                <h3>1. Inspect the Vehicle</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Physical Verification</p>
+                <p>Visit our designated storage yard/main office to conduct a physical and mechanical inspection of the vehicle. You are welcome to bring your own trusted mechanic.</p>
+            </div>
+            <div class="card">
+                <h3>2. Submit Your Offer</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Document Submission</p>
+                <p>Fill out an official Offer to Purchase form at the Rural Bank of Norala main office and state your proposed purchase price and payment scheme (Cash or Financing).</p>
+            </div>
+            <div class="card">
+                <h3>3. Approval &amp; Drive Away</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Release &amp; Turnover</p>
+                <p>Upon Board approval and settlement of payment or down payment, sign the sale documents and take delivery of your vehicle along with its registration papers (OR/CR).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Buyer Guidelines</div>
+        <h3>Important Guidelines for Buyers</h3>
+
+        <div class="grid grid-2" style="margin-top:30px;">
+            <div class="card">
+                <h3>"As-Is, Where-Is" Basis</h3>
+                <p>All units are sold in their current physical, mechanical, and legal condition. Buyers are advised to inspect the physical engine, body, electrical systems, and registration status prior to submitting an offer.</p>
+            </div>
+            <div class="card">
+                <h3>Transfer Fees</h3>
+                <p>Registration transfer fees, insurance renewal, and related expenses are standard responsibilities of the buyer unless specified otherwise.</p>
+            </div>
+        </div>
+    </div>
+</section>

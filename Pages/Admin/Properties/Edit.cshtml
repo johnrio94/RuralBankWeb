@@ -1,0 +1,75 @@
+@page
+@model RuralBankWeb.Pages.Admin.Properties.EditModel
+@{
+    ViewData["Title"] = Model.Property.Id == 0 ? "Add Property" : "Edit Property";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <h1>@(Model.Property.Id == 0 ? "Add Property" : "Edit Property")</h1>
+
+        <form method="post" style="max-width:600px; margin-top:30px;">
+            <input type="hidden" asp-for="Property.Id" />
+            <input type="hidden" asp-for="Property.PropertyId" />
+
+            @if (Model.Property.Id != 0)
+            {
+                <div class="form-field">
+                    <label>Property ID</label>
+                    <input value="@Model.Property.PropertyId" class="form-control" disabled />
+                </div>
+            }
+
+            <div class="form-field">
+                <label asp-for="Property.PropertyType">Property Type</label>
+                <select asp-for="Property.PropertyType" class="form-control">
+                    <option>Agricultural Lot</option>
+                    <option>Residential Lot</option>
+                    <option>Commercial Lot</option>
+                    <option>House &amp; Lot</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Property.Location">Location</label>
+                <input asp-for="Property.Location" class="form-control" placeholder="e.g. Brgy. Lapuz, Norala" required />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Property.LotArea">Lot Area</label>
+                <input asp-for="Property.LotArea" class="form-control" placeholder="e.g. 15,000 sq. m." required />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Property.IndicativePrice">Indicative Price</label>
+                <input asp-for="Property.IndicativePrice" class="form-control" placeholder="Contact Us or ₱1,200,000" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Property.Status">Status</label>
+                <select asp-for="Property.Status" class="form-control">
+                    <option>Available</option>
+                    <option>Under Offer</option>
+                    <option>Sold</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Property.SortOrder">Display Order</label>
+                <input asp-for="Property.SortOrder" type="number" class="form-control" style="max-width:120px;" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    <input type="checkbox" asp-for="Property.IsActive" /> Visible on Available Properties page
+                </label>
+            </div>
+
+            <div style="margin-top:25px;">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/Admin/Properties/Index" class="btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>

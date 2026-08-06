@@ -1,0 +1,58 @@
+@page
+@model RuralBankWeb.Pages.Admin.Jobs.EditModel
+@{
+    ViewData["Title"] = Model.Job.Id == 0 ? "Add Job Opening" : "Edit Job Opening";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <h1>@(Model.Job.Id == 0 ? "Add Job Opening" : "Edit Job Opening")</h1>
+
+        <form method="post" style="max-width:600px; margin-top:30px;">
+            <input type="hidden" asp-for="Job.Id" />
+            <input type="hidden" asp-for="Job.DatePosted" />
+
+            <div class="form-group">
+                <label asp-for="Job.Title">Job Title</label>
+                <input asp-for="Job.Title" class="form-control" required />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Job.Department">Department</label>
+                <input asp-for="Job.Department" class="form-control" required />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Job.Location">Location</label>
+                <input asp-for="Job.Location" class="form-control" required />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Job.EmploymentType">Employment Type</label>
+                <select asp-for="Job.EmploymentType" class="form-control">
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Contractual</option>
+                    <option>Internship</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Job.Description">Description</label>
+                <textarea asp-for="Job.Description" class="form-control" rows="5"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label>
+                    <input type="checkbox" asp-for="Job.IsActive" /> Visible on Careers page
+                </label>
+            </div>
+
+            <div style="margin-top:25px;">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/Admin/Jobs/Index" class="btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>

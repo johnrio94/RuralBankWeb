@@ -1,0 +1,271 @@
+@page
+@model RuralBankWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <div class="divider">Rural Bank of Norala Inc.</div>
+            <h1>@(Model.Hero?.Heading ?? "Banking That Grows With Your Community.")</h1>
+            <p class="hero-sub">@(Model.Hero?.Body ?? "Savings, loans, and financial services built around the real rhythms of farming, family, and local business in South Cotabato.")</p>
+            @* <div class="hero-actions">
+                <a href="/AccountOpen" class="btn btn-primary">Open an Account</a>
+                <a href="/AgriculturalLoans" class="btn btn-outline">Explore Loans</a>
+            </div> *@
+            <div class="hero-actions">
+                <a href="/AccountOpen" class="btn btn-gold">Open an Account</a>
+                <a href="/AgriculturalLoans" class="btn btn-outline">Explore Loans</a>
+            </div>
+                        <div class="hero-trust">
+                <span>🛡️ PDIC Insured up to ₱500,000</span>
+                <span>🏛️ Supervised by BSP</span>
+            </div>
+        </div>
+        <div class="hero-media">
+            @if (!string.IsNullOrEmpty(Model.Hero?.ImageUrl))
+            {
+                <img src="@Model.Hero.ImageUrl" alt="@Model.Hero.Heading" />
+            }
+            else
+            {
+                <div class="hero-placeholder">
+                    <div class="hero-stat"><span>50+</span><small>Years of Service</small></div>
+                    <div class="hero-stat"><span>100%</span><small>Local Service</small></div>
+                    <div class="hero-stat"><span>40,000+</span><small>Depositors</small></div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+    <div class="container stats-bar-inner">
+        <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Years Serving Rural Communities</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Community-Focused Banking</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">40,000+</span>
+            <span class="stat-label">Depositors &amp; Borrowers Served</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">₱500K</span>
+            <span class="stat-label">PDIC Insurance Per Depositor</span>
+        </div>
+    </div>
+</section>
+
+<!-- QUICK ACTIONS STRIP -->
+<section class="section quick-actions">
+    <div class="container">
+        <div class="divider">Get Started</div>
+        <h2>What Would You Like to Do?</h2>
+        <div class="grid grid-4" style="margin-top:32px;">
+            <a href="/Savings" class="card quick-card">
+                <div class="quick-icon">💰</div>
+                <h3>Savings Accounts</h3>
+                <p>Regular, Basic Deposit, ITF options.</p>
+            </a>
+            <a href="/TimeDeposit" class="card quick-card">
+                <div class="quick-icon">📈</div>
+                <h3>Time Deposit</h3>
+                <p>Higher guaranteed returns, 30–360 days.</p>
+            </a>
+            <a href="/AgriculturalLoans" class="card quick-card">
+                <div class="quick-icon">🌾</div>
+                <h3>Agricultural Loans</h3>
+                <p>Harvest-aligned repayment terms.</p>
+            </a>
+            <a href="/AvailableProperties" class="card quick-card">
+                <div class="quick-icon">🏠</div>
+                <h3>Properties &amp; Assets</h3>
+                <p>Acquired real estate &amp; vehicles for sale.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- LOAN PRODUCTS SPOTLIGHT -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Loan Products</div>
+        <h2>Financing Built Around Your Life</h2>
+        <p style="max-width:640px;">Whatever stage you're at—farming, growing a business, buying a home, or going solar—we have a loan program designed around your income cycle, not a generic monthly schedule.</p>
+
+        <div class="grid grid-4" style="margin-top:40px;">
+            <div class="card loan-card">
+                <div class="loan-card-icon">🌾</div>
+                <h3>Agricultural Loans</h3>
+                <p>Crop production, machinery, livestock, and agri-enterprise financing.</p>
+                <a href="/AgriculturalLoans" class="card-link">Learn more →</a>
+            </div>
+            <div class="card loan-card">
+                <div class="loan-card-icon">🚚</div>
+                <h3>Car &amp; Vehicle Financing</h3>
+                <p>Personal vehicles, commercial trucks, motorcycles, and tricycles.</p>
+                <a href="/VehicleFinancing" class="card-link">Learn more →</a>
+            </div>
+            <div class="card loan-card">
+                <div class="loan-card-icon">🏡</div>
+                <h3>Home &amp; Real Estate</h3>
+                <p>Construction, lot acquisition, house &amp; lot purchase, renovation.</p>
+                <a href="/RealEstateLoans" class="card-link">Learn more →</a>
+            </div>
+            <div class="card loan-card">
+                <div class="loan-card-icon">☀️</div>
+                <h3>Solar Energy Financing</h3>
+                <p>Solar pumps, commercial systems, and residential panels.</p>
+                <a href="/SolarFinancing" class="card-link">Learn more →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="section trust-badges">
+    <div class="container">
+        <div class="divider" style="margin-inline:auto; justify-content:center;">Trusted &amp; Compliant</div>
+        <h2 style="text-align:center;">Your Security Is Our Priority</h2>
+        <p style="max-width:640px; margin:0 auto 40px; text-align:center;">We hold ourselves to national banking, data privacy, and industry standards — so you can bank with confidence.</p>
+
+        <div class="grid grid-3 trust-badges-grid">
+            <div class="card trust-badge-card" onclick="openImageModal('/img/badges/pdic.png', 'PDIC Insured')">
+                <img src="/img/badges/pdic.png" alt="PDIC Insured" />
+                <h3>PDIC Insured</h3>
+                <p>Deposits are insured by the Philippine Deposit Insurance Corporation up to ₱500,000 per depositor.</p>
+            </div>
+            <div class="card trust-badge-card" onclick="openImageModal('/img/badges/rbap1.png', 'RBAP Member')">
+                <img src="/img/badges/rbap1.png" alt="Rural Bankers Association of the Philippines" />
+                <h3>RBAP Member</h3>
+                <p>Proud member of the Rural Bankers Association of the Philippines, upholding sound and ethical rural banking practices.</p>
+            </div>
+            <div class="card trust-badge-card" onclick="openImageModal('/img/badges/dpo-dps.png', 'Data Privacy Officer Registered')">
+                <img src="/img/badges/dpo-dps.png" alt="Data Privacy Officer Registered" />
+                <h3>Data Privacy Registered</h3>
+                <p>Our Data Protection Officer is officially registered with the National Privacy Commission, safeguarding your personal information.</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- NPC CERTIFICATE -->
+<!-- NPC CERTIFICATE -->
+<section id="npc-certificate" class="section certificate-section">
+    <div class="container">
+        <div class="divider" style="margin-inline:auto; justify-content:center;">Official Registration</div>
+        <h2 style="text-align:center;">Certified by the National Privacy Commission</h2>
+        <p style="max-width:640px; margin:0 auto 30px; text-align:center;">Rural Bank of Norala (S. Cotabato), Inc. is officially registered with the National Privacy Commission, affirming our commitment to protecting your personal data in accordance with the Data Privacy Act.</p>
+
+        <div class="certificate-showcase" onclick="openImageModal('/img/badges/reg-cert.jpg', 'National Privacy Commission Certificate of Registration — Rural Bank of Norala')">
+            <img src="/img/badges/reg-cert.jpg" alt="National Privacy Commission Certificate of Registration — Rural Bank of Norala" />
+        </div>
+    </div>
+</section>
+
+
+<!-- IMAGE LIGHTBOX MODAL -->
+<div id="imageModal" class="image-modal" onclick="closeImageModal(event)">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Enlarged badge view">
+    <div id="modalCaption" class="modal-caption"></div>
+</div>
+
+<script>
+    function openImageModal(src, title) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const caption = document.getElementById('modalCaption');
+        
+        modalImg.src = src;
+        caption.innerText = title || '';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal(event) {
+        if (!event || event.target.id === 'imageModal' || event.target.classList.contains('modal-close')) {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeImageModal();
+    });
+</script>
+
+
+
+
+
+<!-- WHY CHOOSE US -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Why Rural Bank of Norala</div>
+        <h2>A Bank That Understands Rural Life</h2>
+
+        <div class="grid grid-3" style="margin-top:40px;">
+            <div class="card">
+                <h3>Harvest-Aligned Terms</h3>
+                <p>Loan schedules that follow your actual income cycles—planting season, harvest, or business cash flow—not rigid monthly deadlines.</p>
+            </div>
+            <div class="card">
+                <h3>Local, Personal Service</h3>
+                <p>Work face-to-face with Account Officers who know your community and understand your timelines.</p>
+            </div>
+            <div class="card">
+                <h3>Government-Backed Protection</h3>
+                <p>We partner with PCIC, PhilGuarantee, and other agencies to protect your investment and reduce your risk.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CAREERS TEASER -->
+@if (Model.OpenJobsCount > 0)
+{
+    <section class="section careers-teaser-section">
+        <div class="container careers-teaser">
+            <div>
+                <div class="divider">Careers</div>
+                <h2>We're Hiring</h2>
+                <p>Join a team dedicated to serving our farmers, families, and local businesses. @Model.OpenJobsCount open position@(Model.OpenJobsCount == 1 ? "" : "s") available right now.</p>
+            </div>
+            <a href="/Career" class="btn btn-outline-light">View Openings</a>
+        </div>
+    </section>
+}
+
+<!-- PARTNERS -->
+<section class="section">
+    <div class="container" style="text-align:center;">
+        <div class="divider" style="margin-inline:auto;">Our Partners</div>
+        <h2>Trusted by Leading Institutions</h2>
+        <p style="max-width:640px; margin-inline:auto;">We collaborate with government agencies and financial institutions to bring you better rates, protection, and access to capital.</p>
+        <a href="/Partner" class="btn btn-outline" style="margin-top:20px;">See All Partners</a>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+    <div class="container" style="text-align:center;">
+        <h2>Ready to Start Banking With Us?</h2>
+        <p style="max-width:560px; margin-inline:auto;">Visit any of our branches or open your account today—it only takes a valid ID, a few documents, and a small initial deposit.</p>
+        <div class="hero-actions" style="justify-content:center; margin-top:20px;">
+            <a href="/AccountOpen" class="btn btn-gold">Open an Account</a>
+            <a href="/Contact" class="btn btn-outline-light">Contact a Branch</a>
+        </div>
+    </div>
+</section>
+

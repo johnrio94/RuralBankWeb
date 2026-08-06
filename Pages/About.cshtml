@@ -1,0 +1,90 @@
+@page
+@model RuralBankWeb.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+
+<section class="section">
+    <div class="container">
+        <div class="divider">About Rural Bank of Norala</div>
+
+        @* <h3>@(Model.Intro?.Heading ?? "About Us")</h3>
+        @if (!string.IsNullOrEmpty(Model.Intro?.Subheading))
+        {
+            <p style="font-weight:600;">@Model.Intro.Subheading</p>
+        }
+        <p style="max-width:640px;">@(Model.Intro?.Body ?? "Default fallback text here.")</p>
+
+        @if (!string.IsNullOrEmpty(Model.Intro?.ImageUrl))
+        {
+            <img src="@Model.Intro.ImageUrl" alt="@Model.Intro.Heading" style="max-width:100%; margin-top:20px;" />
+        } *@
+
+        <h3>1970 | The Foundation</h3>
+        <p style="max-width:640px; font-size:1.05rem;">RBNI was founded through the shared vision of local leaders, spearheaded by Dr. Gregorio Limpin, Sr. The mission was clear: drive the economic development of Norala, South Cotabato. From our humble beginnings, we focused on providing vital financial lifelines—particularly agricultural and livelihood financing—helping local communities unlock growth and opportunity.</p>
+
+        <h3>2011 | A New Era of Transformation</h3>
+        <p style="max-width:640px; font-size:1.05rem;">The Bank entered an exciting new chapter when ownership was transferred to Brilliant Four Equity Holdings, Inc., popularly known as the MUTI Group of Companies. This transition sparked a significant evolution, bringing:</p>
+        <ul>
+            <li>Renewed leadership and strengthened management practices</li>
+            <li>Enhanced operational capabilities</li>
+            <li>A deepened commitment to sustainable growth</li>
+        </ul>
+
+        <h3 style="margin-top:30px;">Guided by Legacy, Driven by Value</h3>
+        <p style="max-width:640px; font-size:1.05rem;">Our modern transformation is deeply rooted in the legacy of the MUTI Group of Companies, built on the resilient entrepreneurial spirit and community-first values of the late Chiu Bun Gim.</p>
+        <p style="max-width:640px; font-size:1.05rem;">We carry this legacy forward every day, inspired by our founder's enduring philosophy:</p>
+        <blockquote style="max-width:640px;">
+            "Before your birth, the community has prepared for you — do something for the coming generations."
+            <br />— Chiu Bun Gim
+        </blockquote>
+
+        <h3 style="margin-top:30px;">What We Stand For</h3>
+        <p style="max-width:640px; font-size:1.05rem;">The Bank entered an exciting new chapter when ownership was transferred to Brilliant Four Equity Holdings, Inc., popularly known as the MUTI Group of Companies. This transition sparked a significant evolution, bringing:</p>
+        <ul>
+            <li><strong>Prudent Banking:</strong> Sound risk management and stable practices to keep your money secure.</li>
+            <li><strong>Customer-Centric Solutions:</strong> Growing daily to serve everyone—from local savers and farmers to thriving businesses.</li>
+            <li><strong>Community Progress:</strong> Measuring our success by the growth and resilience of the communities we serve.</li>
+        </ul>
+
+        <div class="grid grid-3" style="margin-top:40px;">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>We provide accessible and affordable financial services to communities that they may realize their aspirations for a higher quality of life.</p>
+            </div>
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>A reliable partner in countryside development that adds maximum value to all stakeholders.</p>
+            </div>
+            <div class="card">
+                <h3>Our Values</h3>
+                <p>Trustworthy &amp; Integrity
+                    <br /> Innovative
+                    <br /> Excellence
+                    <br /> Teamwork
+                    <br /> Service Oriented</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">By the numbers</div>
+        <div class="grid grid-3">
+            <div class="card" style="text-align:center;">
+                <div style="font-family:var(--font-mono); font-size:2rem; color:var(--color-forest);">25+</div>
+                <p>Years serving rural communities</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-family:var(--font-mono); font-size:2rem; color:var(--color-forest);">18</div>
+                <p>Branches across the province</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-family:var(--font-mono); font-size:2rem; color:var(--color-forest);">40,000+</div>
+                <p>Depositors and borrowers served</p>
+            </div>
+        </div>
+    </div>
+</section>

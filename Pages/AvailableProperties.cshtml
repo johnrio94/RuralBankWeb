@@ -1,0 +1,164 @@
+@page
+@model RuralBankWeb.Pages.AvailablePropertiesModel
+@{
+    ViewData["Title"] = "Available Properties";
+}
+
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Available Properties for Sale</div>
+        <h3>Acquire Affordable Real Estate in South Cotabato &amp; Nearby Areas</h3>
+        <p style="max-width:640px;">Looking for affordable land for farming, commercial space for your growing business, or a residential lot for your family? Rural Bank of Norala offers a wide selection of acquired properties available for purchase at competitive prices.</p>
+        <p style="max-width:640px;">All properties listed are bank-owned (Acquired Assets / Real and Other Properties Acquired - ROPA) and are sold on an "As-Is, Where-Is" basis.</p>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Property Categories</div>
+        <h2>We Periodically Update Our Listings Across Various Property Types</h2>
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Property Type</th>
+                    <th>Description</th>
+                    <th>Ideal For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Agricultural Lots</strong></td>
+                    <td>Farmlands suitable for rice, corn, sugarcane, or high-value crops.</td>
+                    <td>Local farmers, agri-enterprises, &amp; agricultural investors.</td>
+                </tr>
+                <tr>
+                    <td><strong>Residential Lots &amp; Houses</strong></td>
+                    <td>Residential land, houses, and townlots in established neighborhoods.</td>
+                    <td>Families looking for affordable homeownership.</td>
+                </tr>
+                <tr>
+                    <td><strong>Commercial Properties</strong></td>
+                    <td>Roadside lots, storefronts, and commercial land along key transport routes.</td>
+                    <td>Local merchants, traders, and small business owners.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Current Listings</div>
+        <h2>Current Listings Overview</h2>
+        <p style="max-width:640px;">Below is our current inventory of acquired properties available for negotiation or bidding:</p>
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Property ID</th>
+                    <th>Property Type</th>
+                    <th>Location</th>
+                    <th>Lot Area</th>
+                    <th>Indicative Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Properties)
+                {
+                    <tr>
+                        <td><strong>@p.PropertyId</strong></td>
+                        <td>@p.PropertyType</td>
+                        <td>@p.Location</td>
+                        <td>@p.LotArea</td>
+                        <td>@p.IndicativePrice</td>
+                        <td>
+                            @if (p.Status == "Available")
+                            {
+                                <span style="color:green;">● Available</span>
+                            }
+                            else if (p.Status == "Under Offer")
+                            {
+                                <span style="color:#b8860b;">● Under Offer</span>
+                            }
+                            else
+                            {
+                                <span style="color:#999;">● Sold</span>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Properties.Any())
+                {
+                    <tr><td colspan="6">No properties currently listed. Check back soon.</td></tr>
+                }
+            </tbody>
+        </table>
+
+        <p style="margin-top:20px; font-size:0.9rem; color:var(--color-soil);"><em>Note: Prices, property details, and availability are subject to change without prior notice. Please contact our Asset Management Department for complete property profiles and tax declarations.</em></p>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Payment Terms</div>
+        <h3>Flexible Payment Terms</h3>
+        <p style="max-width:640px;">We make acquiring real estate simple by offering both cash purchase options and flexible in-house financing:</p>
+
+        <div class="grid grid-2" style="margin-top:30px;">
+            <div class="card">
+                <h3>Cash Payment</h3>
+                <p>Enjoy special discounts on spot-cash purchases.</p>
+            </div>
+            <div class="card">
+                <h3>Bank Financing</h3>
+                <p>Pay a minimal down payment (e.g., 20%–30%) and finance the remaining balance through our Real Estate Financing Programs at competitive interest rates.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="divider">How to Purchase</div>
+        <h3>How to Purchase a Property</h3>
+
+        <div class="grid grid-3" style="margin-top:40px;">
+            <div class="card">
+                <h3>1. Inspect the Property</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Independent Verification</p>
+                <p>Browse our listing and conduct an actual site visit to inspect the physical condition and boundaries of the property.</p>
+            </div>
+            <div class="card">
+                <h3>2. Submit an Offer to Purchase</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Main Office Visit</p>
+                <p>Visit the Rural Bank of Norala main office to fill out an official Offer to Purchase form and submit your proposed price and payment terms.</p>
+            </div>
+            <div class="card">
+                <h3>3. Approval &amp; Deed Execution</h3>
+                <p style="font-size:0.9rem; color:var(--color-soil); font-weight:600;">Legal Execution</p>
+                <p>Once your offer is approved by the Board, sign the Contract to Sell / Deed of Absolute Sale and complete your down payment or full purchase price.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="divider">Buyer Guidelines &amp; Disclaimers</div>
+        <h3>Please Read Before You Offer</h3>
+
+        <div class="grid grid-2" style="margin-top:30px;">
+            <div class="card">
+                <h3>"As-Is, Where-Is" Basis</h3>
+                <p>Buyers are strongly advised to conduct their own due diligence, including physical inspection, verification of land titles, and checking tax declarations prior to submitting an offer.</p>
+            </div>
+            <div class="card">
+                <h3>Taxes &amp; Transfer Fees</h3>
+                <p>Unless explicitly agreed upon, expenses such as Capital Gains Tax, Transfer Tax, Documentary Stamp Tax, and Registration Fees are typically handled according to standard real estate sale practices.</p>
+            </div>
+        </div>
+    </div>
+</section>

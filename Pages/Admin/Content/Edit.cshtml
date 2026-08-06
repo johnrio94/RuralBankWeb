@@ -1,0 +1,57 @@
+@page
+@model RuralBankWeb.Pages.Admin.Content.EditModel
+@{
+    ViewData["Title"] = Model.Section.Id == 0 ? "Add Section" : "Edit Section";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <h1>@(Model.Section.Id == 0 ? "Add Content Section" : "Edit Content Section")</h1>
+
+        <form method="post" style="max-width:700px; margin-top:30px;">
+            <input type="hidden" asp-for="Section.Id" />
+
+            <div class="form-group">
+                <label asp-for="Section.PageKey">Page Key (e.g. Career, About, News)</label>
+                <input asp-for="Section.PageKey" class="form-control" required />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.SectionKey">Section Key (e.g. Hero, Intro, WhyWorkHere)</label>
+                <input asp-for="Section.SectionKey" class="form-control" required />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.Heading">Heading</label>
+                <input asp-for="Section.Heading" class="form-control" />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.Subheading">Subheading</label>
+                <input asp-for="Section.Subheading" class="form-control" />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.Body">Body Text</label>
+                <textarea asp-for="Section.Body" class="form-control" rows="6"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.ImageUrl">Image URL (optional)</label>
+                <input asp-for="Section.ImageUrl" class="form-control" placeholder="/images/example.jpg" />
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Section.SortOrder">Display Order</label>
+                <input asp-for="Section.SortOrder" type="number" class="form-control" style="max-width:120px;" />
+            </div>
+
+            <div style="margin-top:25px;">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/Admin/Content/Index" class="btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+

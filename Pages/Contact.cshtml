@@ -1,0 +1,74 @@
+@page
+@model RuralBankWeb.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Get in touch</div>
+        <h3>Contact Us</h3>
+        <p style="max-width:640px;">Have a question about a loan, deposit account, or listed asset? Send us a message or visit any branch below.</p>
+
+        <div class="contact-grid" style="margin-top:36px;">
+            <div>
+                <h3>Our Branches</h3>
+
+                <div class="branch-card">
+                    <strong>Main Branch — Poblacion</strong>
+                    <p>123 Rizal Street, Poblacion<br />Mon–Fri, 9:00 AM – 4:00 PM<br />(083) 555-0142</p>
+                </div>
+                <div class="branch-card">
+                    <strong>San Isidro Branch</strong>
+                    <p>Public Market Road, Brgy. San Isidro<br />Mon–Fri, 9:00 AM – 4:00 PM<br />(083) 555-0198</p>
+                </div>
+                <div class="branch-card">
+                    <strong>Malinao Branch</strong>
+                    <p>National Highway, Brgy. Malinao<br />Mon–Sat, 9:00 AM – 3:00 PM<br />(083) 555-0231</p>
+                </div>
+
+                <p style="margin-top:20px;">General inquiries: <a href="mailto:info@katagumpayruralbank.example">info@katagumpayruralbank.example</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Send a Message</h3>
+
+                @if (Model.Submitted)
+                {
+                    <p style="background:#EAF3EA; color:var(--color-forest-deep); padding:14px 16px; border-radius:8px;">
+                        Thank you — your message has been received. A staff member will get back to you shortly.
+                    </p>
+                }
+
+                <form method="post">
+                    <div class="form-field">
+                        <label asp-for="Form.FullName">Full Name</label>
+                        <input asp-for="Form.FullName" type="text" placeholder="Juan Dela Cruz" />
+                        <span asp-validation-for="Form.FullName" style="color:#B3261E; font-size:0.85rem;"></span>
+                    </div>
+                    <div class="form-field">
+                        <label asp-for="Form.ContactInfo">Phone or Email</label>
+                        <input asp-for="Form.ContactInfo" type="text" placeholder="0917 000 0000 or you@example.com" />
+                        <span asp-validation-for="Form.ContactInfo" style="color:#B3261E; font-size:0.85rem;"></span>
+                    </div>
+                    <div class="form-field">
+                        <label asp-for="Form.Branch">Nearest Branch</label>
+                        <select asp-for="Form.Branch">
+                            <option value="">Select a branch</option>
+                            <option value="Main">Main Branch — Poblacion</option>
+                            <option value="SanIsidro">San Isidro Branch</option>
+                            <option value="Malinao">Malinao Branch</option>
+                        </select>
+                        <span asp-validation-for="Form.Branch" style="color:#B3261E; font-size:0.85rem;"></span>
+                    </div>
+                    <div class="form-field">
+                        <label asp-for="Form.Message">Message</label>
+                        <textarea asp-for="Form.Message" rows="5" placeholder="How can we help you?"></textarea>
+                        <span asp-validation-for="Form.Message" style="color:#B3261E; font-size:0.85rem;"></span>
+                    </div>
+                    <button type="submit" class="btn btn-forest">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

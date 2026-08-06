@@ -1,0 +1,60 @@
+@page
+@model RuralBankWeb.Pages.Admin.Content.IndexModel
+@{
+    ViewData["Title"] = "Manage Page Content";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>Page Content</h1>
+            <div>
+                <a href="/Admin/Content/Edit" class="btn btn-primary">+ Add Section</a>
+                <a href="/Account/Logout" class="btn">Logout</a>
+            </div>
+        </div>
+
+        <p style="margin-top:10px;">Choose a page to add a new section: </p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+            @foreach (var pageName in Model.KnownPages)
+                {
+                    <a href="/Admin/Content/Edit?pageKey=@pageName" class="btn btn-sm">@pageName</a>
+                }
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>Section</th>
+                    <th>Heading</th>
+                    <th>Order</th>
+                    <th style="width:160px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model.Sections.OrderBy(s => s.PageKey).ThenBy(s => s.SortOrder))
+                {
+                    <tr>
+                        <td><strong>@s.PageKey</strong></td>
+                        <td>@s.SectionKey</td>
+                        <td>@s.Heading</td>
+                        <td>@s.SortOrder</td>
+                        <td>
+                            <a href="/Admin/Content/Edit?id=@s.Id" class="btn btn-sm">Edit</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@s.Id" style="display:inline;"
+                                  onsubmit="return confirm('Delete this section?');">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Sections.Any())
+                {
+                    <tr><td colspan="5">No content sections yet. Click a page above to add one.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

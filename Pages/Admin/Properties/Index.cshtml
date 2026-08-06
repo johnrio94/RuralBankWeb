@@ -1,0 +1,67 @@
+@page
+@model RuralBankWeb.Pages.Admin.Properties.IndexModel
+@{
+    ViewData["Title"] = "Manage Properties";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>Available Properties</h1>
+            <a href="/Admin/Properties/Edit" class="btn btn-primary">+ Add Property</a>
+        </div>
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Property ID</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Lot Area</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Visible</th>
+                    <th style="width:220px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Properties)
+                {
+                    <tr>
+                        <td><strong>@p.PropertyId</strong></td>
+                        <td>@p.PropertyType</td>
+                        <td>@p.Location</td>
+                        <td>@p.LotArea</td>
+                        <td>@p.IndicativePrice</td>
+                        <td>@p.Status</td>
+                        <td>
+                            @if (p.IsActive)
+                            {
+                                <span style="color:green;">● Shown</span>
+                            }
+                            else
+                            {
+                                <span style="color:#999;">○ Hidden</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="/Admin/Properties/Edit?id=@p.Id" class="btn btn-sm">Edit</a>
+                            <form method="post" asp-page-handler="ToggleActive" asp-route-id="@p.Id" style="display:inline;">
+                                <button type="submit" class="btn btn-sm">@(p.IsActive ? "Hide" : "Show")</button>
+                            </form>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@p.Id" style="display:inline;"
+                                  onsubmit="return confirm('Delete this property?');">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Properties.Any())
+                {
+                    <tr><td colspan="8">No properties yet. Click "Add Property" to create one.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

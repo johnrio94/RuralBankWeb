@@ -1,0 +1,74 @@
+@page
+@model RuralBankWeb.Pages.Admin.Jobs.IndexModel
+@{
+    ViewData["Title"] = "Manage Job Openings";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h1>Job Openings</h1>
+            <a href="/Admin/Jobs/Edit" class="btn btn-primary">+ Add New Job</a>
+        </div>
+
+        @if (TempData["Message"] != null)
+        {
+            <p style="color:green;">@TempData["Message"]</p>
+        }
+
+        <table class="data-table" style="margin-top:30px;">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Department</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Date Posted</th>
+                    <th style="width:220px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in Model.Jobs)
+                {
+                    <tr>
+                        <td><strong>@job.Title</strong></td>
+                        <td>@job.Department</td>
+                        <td>@job.Location</td>
+                        <td>@job.EmploymentType</td>
+                        <td>
+                            @if (job.IsActive)
+                            {
+                                <span style="color:green;">● Active</span>
+                            }
+                            else
+                            {
+                                <span style="color:#999;">○ Hidden</span>
+                            }
+                        </td>
+                        <td>@job.DatePosted.ToString("MMM d, yyyy")</td>
+                        <td>
+                            <a href="/Admin/Jobs/Edit?id=@job.Id" class="btn btn-sm">Edit</a>
+
+                            <form method="post" asp-page-handler="ToggleActive" asp-route-id="@job.Id" style="display:inline;">
+                                <button type="submit" class="btn btn-sm">
+                                    @(job.IsActive ? "Hide" : "Show")
+                                </button>
+                            </form>
+
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@job.Id" style="display:inline;"
+                                  onsubmit="return confirm('Delete this job posting?');">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Jobs.Any())
+                {
+                    <tr><td colspan="7">No job openings yet. Click "Add New Job" to create one.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

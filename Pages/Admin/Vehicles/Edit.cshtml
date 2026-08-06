@@ -1,0 +1,79 @@
+@page
+@model RuralBankWeb.Pages.Admin.Vehicles.EditModel
+@{
+    ViewData["Title"] = Model.Vehicle.Id == 0 ? "Add Vehicle" : "Edit Vehicle";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="divider">Admin</div>
+        <h1>@(Model.Vehicle.Id == 0 ? "Add Vehicle" : "Edit Vehicle")</h1>
+
+        <form method="post" style="max-width:600px; margin-top:30px;">
+            <input type="hidden" asp-for="Vehicle.Id" />
+            <input type="hidden" asp-for="Vehicle.UnitId" />
+
+            @if (Model.Vehicle.Id != 0)
+            {
+                <div class="form-field">
+                    <label>Unit ID</label>
+                    <input value="@Model.Vehicle.UnitId" class="form-control" disabled />
+                </div>
+            }
+
+            <div class="form-field">
+                <label asp-for="Vehicle.Description">Vehicle Description</label>
+                <input asp-for="Vehicle.Description" class="form-control" placeholder="e.g. Toyota Hilux Pickup 4x2" required />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.Category">Category</label>
+                <select asp-for="Vehicle.Category" class="form-control">
+                    <option>Commercial &amp; Utility Vehicles</option>
+                    <option>Passenger Cars &amp; SUVs</option>
+                    <option>Motorcycles &amp; Tricycles</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.ModelYear">Model Year</label>
+                <input asp-for="Vehicle.ModelYear" type="number" class="form-control" style="max-width:150px;" required />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.Mileage">Mileage</label>
+                <input asp-for="Vehicle.Mileage" class="form-control" placeholder="e.g. 45,000 km" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.IndicativePrice">Indicative Price</label>
+                <input asp-for="Vehicle.IndicativePrice" class="form-control" placeholder="Contact Us or ₱850,000" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.Status">Status</label>
+                <select asp-for="Vehicle.Status" class="form-control">
+                    <option>Available</option>
+                    <option>Under Offer</option>
+                    <option>Sold</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Vehicle.SortOrder">Display Order</label>
+                <input asp-for="Vehicle.SortOrder" type="number" class="form-control" style="max-width:120px;" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    <input type="checkbox" asp-for="Vehicle.IsActive" /> Visible on Pre-Owned Vehicles page
+                </label>
+            </div>
+
+            <div style="margin-top:25px;">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/Admin/Vehicles/Index" class="btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
