@@ -69,6 +69,9 @@ builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 builder.Services.AddScoped<IPageContentService, PageContentService>();
 builder.Services.AddScoped<IPropertyService, PropertyService>();
 builder.Services.AddScoped<IVehicleService, VehicleService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
 
 var app = builder.Build();
 

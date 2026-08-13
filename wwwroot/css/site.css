@@ -1229,3 +1229,52 @@ Add this override specifically for the real estate page, or adjust the shared ru
 }
 
 
+/* ===== Contact form success/error states ===== */
+.contact-success {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.contact-success-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--color-forest);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.contact-success h2 {
+  margin-bottom: 8px;
+}
+
+.contact-success p {
+  color: rgba(74, 55, 40, 0.8);
+}
+
+.contact-error {
+  background: #FDECEC;
+  border: 1px solid #F3B8B8;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.contact-error p {
+  color: #B3261E;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.field-error {
+  color: #B3261E;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 4px;
+}
+

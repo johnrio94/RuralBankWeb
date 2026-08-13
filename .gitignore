@@ -1,0 +1,19 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+
+# NuGet
+*.nupkg
+
+# App secrets / local config — NEVER commit these
+appsettings.Development.json
+appsettings.Local.json
+
+# OS files
+.DS_Store
+Thumbs.db

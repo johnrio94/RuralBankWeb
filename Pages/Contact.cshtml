@@ -7,67 +7,70 @@
 <section class="section">
     <div class="container">
         <div class="divider">Get in touch</div>
-        <h3>Contact Us</h3>
-        <p style="max-width:640px;">Have a question about a loan, deposit account, or listed asset? Send us a message or visit any branch below.</p>
+        <h1>Contact Us</h1>
+        <p style="max-width:640px;">Have a question about a loan, deposit account, or listed asset? Send us a message or visit our branch below.</p>
 
         <div class="contact-grid" style="margin-top:36px;">
             <div>
-                <h3>Our Branches</h3>
+                <h2>Our Branch</h2>
 
                 <div class="branch-card">
-                    <strong>Main Branch — Poblacion</strong>
-                    <p>123 Rizal Street, Poblacion<br />Mon–Fri, 9:00 AM – 4:00 PM<br />(083) 555-0142</p>
-                </div>
-                <div class="branch-card">
-                    <strong>San Isidro Branch</strong>
-                    <p>Public Market Road, Brgy. San Isidro<br />Mon–Fri, 9:00 AM – 4:00 PM<br />(083) 555-0198</p>
-                </div>
-                <div class="branch-card">
-                    <strong>Malinao Branch</strong>
-                    <p>National Highway, Brgy. Malinao<br />Mon–Sat, 9:00 AM – 3:00 PM<br />(083) 555-0231</p>
+                    <strong>Rural Bank of Norala (S. Cotabato), Inc.</strong>
+                    <p>
+                        Manuel Roxas Avenue, Corner Jose Burgos Street,<br />
+                        Norala, South Cotabato, Philippines 9508<br />
+                        📞 0912 461 4273
+                    </p>
                 </div>
 
-                <p style="margin-top:20px;">General inquiries: <a href="mailto:info@katagumpayruralbank.example">info@katagumpayruralbank.example</a></p>
+                <p style="margin-top:20px;">General inquiries: <a href="mailto:rbnorala043450@gmail.com">rbnorala043450@gmail.com</a></p>
             </div>
 
             <div class="card">
-                <h3>Send a Message</h3>
-
                 @if (Model.Submitted)
                 {
-                    <p style="background:#EAF3EA; color:var(--color-forest-deep); padding:14px 16px; border-radius:8px;">
-                        Thank you — your message has been received. A staff member will get back to you shortly.
-                    </p>
+                    <div class="contact-success">
+                        <div class="contact-success-icon">✓</div>
+                        <h2>Message Sent</h2>
+                        <p>Thank you — your message has been received. A staff member will get back to you shortly.</p>
+                        <a href="/Contact" class="btn btn-outline" style="margin-top:16px;">Send Another Message</a>
+                    </div>
                 }
+                else
+                {
+                    <h2>Send a Message</h2>
 
-                <form method="post">
-                    <div class="form-field">
-                        <label asp-for="Form.FullName">Full Name</label>
-                        <input asp-for="Form.FullName" type="text" placeholder="Juan Dela Cruz" />
-                        <span asp-validation-for="Form.FullName" style="color:#B3261E; font-size:0.85rem;"></span>
-                    </div>
-                    <div class="form-field">
-                        <label asp-for="Form.ContactInfo">Phone or Email</label>
-                        <input asp-for="Form.ContactInfo" type="text" placeholder="0917 000 0000 or you@example.com" />
-                        <span asp-validation-for="Form.ContactInfo" style="color:#B3261E; font-size:0.85rem;"></span>
-                    </div>
-                    <div class="form-field">
-                        <label asp-for="Form.Branch">Nearest Branch</label>
-                        <select asp-for="Form.Branch">
-                            <option value="">Select a branch</option>
-                            <option value="Main">Main Branch — Poblacion</option>
-                            <option value="SanIsidro">San Isidro Branch</option>
-                            <option value="Malinao">Malinao Branch</option>
-                        </select>
-                        <span asp-validation-for="Form.Branch" style="color:#B3261E; font-size:0.85rem;"></span>
-                    </div>
-                    <div class="form-field">
-                        <label asp-for="Form.Message">Message</label>
-                        <textarea asp-for="Form.Message" rows="5" placeholder="How can we help you?"></textarea>
-                        <span asp-validation-for="Form.Message" style="color:#B3261E; font-size:0.85rem;"></span>
-                    </div>
-                    <button type="submit" class="btn btn-forest">Send Message</button>
-                </form>
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="contact-error">
+                            <p>@Model.ErrorMessage</p>
+                        </div>
+                    }
+
+                    <form method="post">
+                        <div class="form-field">
+                            <label asp-for="Form.FullName">Full Name</label>
+                            <input asp-for="Form.FullName" type="text" placeholder="Juan Dela Cruz" />
+                            <span asp-validation-for="Form.FullName" class="field-error"></span>
+                        </div>
+                        <div class="form-field">
+                            <label asp-for="Form.Phone">Phone Number</label>
+                            <input asp-for="Form.Phone" type="tel" placeholder="0917 000 0000" />
+                            <span asp-validation-for="Form.Phone" class="field-error"></span>
+                        </div>
+                        <div class="form-field">
+                            <label asp-for="Form.Email">Email Address</label>
+                            <input asp-for="Form.Email" type="email" placeholder="you@example.com" />
+                            <span asp-validation-for="Form.Email" class="field-error"></span>
+                        </div>
+                        <div class="form-field">
+                            <label asp-for="Form.Message">Message</label>
+                            <textarea asp-for="Form.Message" rows="5" placeholder="How can we help you?"></textarea>
+                            <span asp-validation-for="Form.Message" class="field-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-gold">Send Message</button>
+                    </form>
+                }
             </div>
         </div>
     </div>
